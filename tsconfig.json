@@ -14,5 +14,5 @@
     "forceConsistentCasingInFileNames": true,
     "composite": true
   },
-  "files": ["config.json"]
+  "files": ["package.json"]
 }
