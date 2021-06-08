@@ -1,13 +1,11 @@
-import { Octokit } from 'octokit'
+import { Octokit } from "octokit";
 
 export const fetchPRs = async (): Promise<string> => {
-  const octokit = process.env.GITHUB_TOKEN
-    ? new Octokit({ auth: process.env.GITHUB_TOKEN })
-    : undefined
-
-  if (!octokit) {
-    throw new Error('Octokit is uninitialized')
+  if (!process.env.GITHUB_TOKEN) {
+    throw new Error("Octokit is uninitialized");
   }
+
+  const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
   const {
     viewer: { login },
@@ -19,7 +17,7 @@ export const fetchPRs = async (): Promise<string> => {
         }
       }
     `
-  )
+  );
 
-  return login
-}
+  return login;
+};
